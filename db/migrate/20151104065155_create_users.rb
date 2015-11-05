@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.string :firstname
       t.string :lastname
-      t.integer :rank
       t.boolean :active, default: true
 
       t.timestamps null: false
