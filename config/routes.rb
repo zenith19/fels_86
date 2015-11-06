@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root 'users#show'
-  resources :users, except: [:destroy]
+  get 'signup' => 'users#new'
+  get    'signin'   => 'authentications#new'
+  post   'signin'   => 'authentications#create'
+  delete 'signout'  => 'authentications#destroy'
+  resources :users, except: :destroy
+  resources :authentications, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

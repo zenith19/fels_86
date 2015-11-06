@@ -21,11 +21,32 @@
 
 en:
   hello: "Hello world"
+  base_link: "Framgia E-Learning System"
+  menu:
+    home: "Home"
+    word_list: "Word List"
+    categories: "Categories"
+    lesson: "Lesson"
+    result: "Result"
+    all_users: "All Users"
+    sign_out: "Sign Out"
+  sign_in_message: "Please sign in."
+  authentication:
+    submit: "Sign In"
+    signup_link: "Sign up now!"
+  authentications:
+    create:
+      danger: "Invalid email/password combination"
+  users:
+    create:
+      success: "Thank you for joining with us."
+    update:
+      success: "Profile updated"
   helpers:
-    label:
-      user:
+    user:
+      label:
         password_confirmation: "Confirmation"
-    submit:
+    submit:      
       user:
         create: "Register"
         update: "Save Changes"
