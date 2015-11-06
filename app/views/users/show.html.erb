@@ -1,0 +1,21 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>        
+        <%= @user.firstname %> <%= @user.lastname %>
+      </h1>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="col-md-8">    
+    <% if @user.activities.any? %>
+      <h3>Activities (<%= @user.activities.count %>)</h3>
+      <ol class="activities">
+        <%= render @activities %>
+      </ol>
+      <%= will_paginate @activities %>
+    <% end %>
+  </div>
+</div>

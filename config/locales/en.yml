@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+  helpers:
+    label:
+      user:
+        password_confirmation: "Confirmation"
+    submit:
+      user:
+        create: "Register"
+        update: "Save Changes"

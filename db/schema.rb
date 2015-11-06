@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20151104085838) do
     t.string   "password_digest"
     t.string   "firstname"
     t.string   "lastname"
-    t.integer  "rank"
     t.boolean  "active",          default: true
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
