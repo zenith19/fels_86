@@ -22,6 +22,15 @@
 en:
   hello: "Hello world"
   base_link: "Framgia E-Learning System"
+  create: "Create"
+  show: "Show"
+  update: "Update"
+  index: "Back to Index Page"
+  category_update_title: "Update Category Name:"
+  category_create_title: "Input Category Name:"
+  category_id: "Category ID:"
+  category_created_at: "Category created at:"
+  category_upated_at: "Category updated at:"
   menu:
     home: "Home"
     word_list: "Word List"
@@ -42,6 +51,12 @@ en:
       success: "Thank you for joining with us."
     update:
       success: "Profile updated"
+  admin:
+    categories:
+      create:
+        success: "Successfully created"
+      update:
+        success: "Successfully updated"        
   helpers:
     user:
       label:

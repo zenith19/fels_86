@@ -1,0 +1,10 @@
+<%= link_to t(:create), new_admin_category_path %> <br/>
+<% @categories.each do |category| %>
+  <h2> <%= category.name %> </h2>
+  <p>  	
+  	<% category.words.each do |word| %>
+  	  <%= word.content %>&nbsp;
+  	<% end %>
+  	<%= link_to t(:update), edit_admin_category_path(category.id) %><br/>
+  </p>
+<% end %>

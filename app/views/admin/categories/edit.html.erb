@@ -1,0 +1,6 @@
+<%= link_to t(:index), admin_categories_path %>
+<%= form_for [:admin, @category] do |f| %>
+  <%= t :category_update_title %>
+  <%= f.text_field :name %>
+  <%= f.submit t(:update) %>
+<% end %>
