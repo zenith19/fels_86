@@ -1,0 +1,18 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to t('base_link'), root_path %>
+    <% if logged_in? %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">      	
+        <li><%= link_to t('nav.home'),   root_path %></li>
+        <li><%= link_to t 'nav.word_list' %></li>
+        <li><%= link_to t 'nav.categories' %></li>
+        <li><%= link_to t 'nav.lesson' %></li>
+        <li><%= link_to t 'nav.result' %></li>
+        <li><%= link_to t 'nav.all_users' %></li>
+        <li><%= link_to t('nav.sign_out'), signout_path, method: :delete %></li>                  
+      </ul>
+    </nav>
+    <% end %>
+  </div>
+</header>
