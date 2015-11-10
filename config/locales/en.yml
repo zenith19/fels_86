@@ -31,6 +31,11 @@ en:
   category_id: "Category ID:"
   category_created_at: "Category created at:"
   category_upated_at: "Category updated at:"
+  users_title: "All users"
+  edit_user_title: "Update your profile"
+  sign_up_title: "Sign Up"
+  edit_admin_user_title: "Update profile"
+  activities: "Activities"
   menu:
     home: "Home"
     word_list: "Word List"
@@ -38,6 +43,7 @@ en:
     lesson: "Lesson"
     result: "Result"
     all_users: "All Users"
+    profile: "Profile"
     sign_out: "Sign Out"
   sign_in_message: "Please sign in."
   authentication:
@@ -53,6 +59,11 @@ en:
       success: "Profile updated"
   admin:
     categories:
+      create:
+        success: "Successfully created"
+      update:
+        success: "Successfully updated"        
+    users:
       create:
         success: "Successfully created"
       update:

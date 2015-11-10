@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   resources :authentications, only: [:new, :create, :destroy]  
   resources :categories, only: :index
   namespace :admin do
+    root 'users#show'
     resources :categories, except: [:destroy, :show]
-  end
+    resources :users, only: [:index, :show, :edit, :update]
+  end  
   
   #match ':controller(/:action(/:id))', :via => :get,:posts
 

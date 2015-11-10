@@ -6,7 +6,7 @@ class AuthenticationsController < ApplicationController
     user = User.find_by email: params[:authentication][:email]
     if user && (user.authenticate params[:authentication][:password])
       log_in user
-      redirect_to root_url
+      redirect_home
     else
       flash.now[:danger] = t '.danger'
       render :new
@@ -15,6 +15,11 @@ class AuthenticationsController < ApplicationController
   
   def destroy
     log_out if logged_in?
-    redirect_to root_url
+    redirect_to new_authentication_path
+  end
+  
+  private
+  def redirect_home
+    redirect_to (current_user.admin?) ? admin_root_path : root_url
   end
 end
