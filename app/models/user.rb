@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
-  has_many :active_relationships, class_name:  "Relationship",
+  has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
-                                  dependent:   :destroy
-  has_many :passive_relationships, class_name:  "Relationship",
+                                  dependent: :destroy
+  has_many :passive_relationships, class_name: "Relationship",
                                    foreign_key: "followed_id",
-                                   dependent:   :destroy
+                                   dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :lessons, dependent: :destroy
@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 8 }
-  validates :active,  presence: true
   
   before_save :downcase_email
   has_secure_password

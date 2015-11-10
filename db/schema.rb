@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 20151104085838) do
     t.string   "password_digest"
     t.string   "firstname"
     t.string   "lastname"
-    t.boolean  "active",          default: true
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.boolean  "admin",           default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "word_answers", force: :cascade do |t|

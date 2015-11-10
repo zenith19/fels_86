@@ -6,7 +6,7 @@
       <ul class="nav navbar-nav navbar-right">      	
         <li><%= link_to t('nav.home'),   root_path %></li>
         <li><%= link_to t 'nav.word_list' %></li>
-        <li><%= link_to t 'nav.categories' %></li>
+        <li><%= link_to t('nav.categories'), current_user.admin? ? admin_categories_path : categories_path %></li>
         <li><%= link_to t 'nav.lesson' %></li>
         <li><%= link_to t 'nav.result' %></li>
         <li><%= link_to t 'nav.all_users' %></li>

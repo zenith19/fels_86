@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   post   'signin'   => 'authentications#create'
   delete 'signout'  => 'authentications#destroy'
   resources :users, except: :destroy
-  resources :authentications, only: [:new, :create, :destroy]
+  resources :authentications, only: [:new, :create, :destroy]  
+  resources :categories, only: :index
+  namespace :admin do
+    resources :categories, except: [:destroy, :show]
+  end
+  
+  #match ':controller(/:action(/:id))', :via => :get,:posts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
