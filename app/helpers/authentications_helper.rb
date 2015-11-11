@@ -29,7 +29,7 @@ module AuthenticationsHelper
   def current_user? user
     user == current_user
   end
-  
+
   def check_admin
     redirect_to categories_path unless current_user.admin?
   end  

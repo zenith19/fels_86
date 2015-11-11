@@ -9,7 +9,8 @@
         <li><%= link_to t('nav.categories'), current_user.admin? ? admin_categories_path : categories_path %></li>
         <li><%= link_to t 'nav.lesson' %></li>
         <li><%= link_to t 'nav.result' %></li>
-        <li><%= link_to t 'nav.all_users' %></li>
+        <li><%= link_to t('nav.all_users'), current_user.admin? ? admin_users_path : users_path %></li>
+        <li><%= link_to t('nav.profile'), current_user.admin? ? edit_admin_user_path(current_user.id) : edit_user_path(current_user.id) %></li>
         <li><%= link_to t('nav.sign_out'), signout_path, method: :delete %></li>                  
       </ul>
     </nav>

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  include UsersHelper
   before_action :logged_in_user, except: [:new, :create]
+  
   def index
     @users = User.paginate page: params[:page]
   end
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new user_params    
+    @user = User.new user_params
     if @user.save
       flash[:success] = t '.success'
       log_in @user
@@ -24,15 +26,13 @@ class UsersController < ApplicationController
     end
   end
   
-  def edit
-    @user = User.find params[:id]
+  def edit    
   end
   
-  def update
-    @user = User.find params[:id]
-    if @user.update_attributes user_params
+  def update    
+    if current_user.update_attributes user_params
       flash[:success] = t '.success'
-      redirect_to @user
+      redirect_to current_user
     else
       render :edit
     end
@@ -40,6 +40,6 @@ class UsersController < ApplicationController
   
   private    
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :firstname, :lastname)
+    params.require(:user).permit :email, :password, :password_confirmation, :firstname, :lastname
   end
 end
