@@ -2,7 +2,7 @@ class CreateWords < ActiveRecord::Migration
   def change
     create_table :words do |t|
       t.string :content
-      t.references :category
+      t.references :category, null: false
 
       t.timestamps null: false
     end

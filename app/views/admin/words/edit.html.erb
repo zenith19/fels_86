@@ -1,0 +1,21 @@
+<h3><%= t :word_update_title %></h3>
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+    <%= form_for [:admin, @word] do |f| %>
+      <%= render 'shared/error', object: f.object %>
+	  
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+	  
+      <%= f.label :category %>  
+      <%= f.collection_select :category_id, @categories, :id, :name, {prompt: t(:select_category)} %>
+	  
+
+      <%= f.fields_for :word_answers do |word_answer_form| %>
+        <%= render "word_answer_fields", f: word_answer_form %>
+      <% end %>
+	  
+      <%= f.submit t(:update) %>      
+    <% end %>
+    </div>
+</div>

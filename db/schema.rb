@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20151104085838) do
   create_table "lesson_words", force: :cascade do |t|
     t.integer  "lesson_id"
     t.integer  "word_id"
-    t.integer  "wordAnswer_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "word_answer_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20151104085838) do
 
   create_table "words", force: :cascade do |t|
     t.string   "content"
-    t.integer  "category_id"
+    t.integer  "category_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

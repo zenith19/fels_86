@@ -1,0 +1,16 @@
+<%= will_paginate %>
+
+<% @words.each do |word| %>
+<% cycle :odd, :even %>
+<%= raw '<div class="row">' if current_cycle == 'odd' %>
+  <div class="col-xs-2">
+  	<%= word.content %>
+  </div>
+  <div class="col-xs-3 <%= 'divider-vertical' if current_cycle == 'odd' %>">	  	
+  	<%= word.word_answers.corrected.try(:content) %>  		  	
+  </div>
+<%= raw '</div>' if current_cycle == 'even' %>
+<%= raw '</div>' if word == @words.last && current_cycle == 'odd' %>
+<% end %>
+
+<%= will_paginate %>
