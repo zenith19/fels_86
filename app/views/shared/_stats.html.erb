@@ -1,0 +1,7 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <%= @user.following.count %>
+  <%= t(:following) %>
+  <%= @user.followers.count %>
+  <%= t(:follower) %> 
+</div>

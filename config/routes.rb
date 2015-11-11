@@ -4,15 +4,15 @@ Rails.application.routes.draw do
   get    'signin'   => 'authentications#new'
   post   'signin'   => 'authentications#create'
   delete 'signout'  => 'authentications#destroy'
-  resources :users, except: :destroy
   resources :authentications, only: [:new, :create, :destroy]  
   resources :categories, only: :index
+  resources :users, except: :destroy
   namespace :admin do
     root 'users#show'
     resources :categories, except: [:destroy, :show]
     resources :users, only: [:index, :show, :edit, :update]
   end  
-  
+  resources :relationships, only: [:create, :destroy]
   #match ':controller(/:action(/:id))', :via => :get,:posts
 
   # The priority is based upon order of creation: first created -> highest priority.

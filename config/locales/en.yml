@@ -36,6 +36,10 @@ en:
   sign_up_title: "Sign Up"
   edit_admin_user_title: "Update profile"
   activities: "Activities"
+  following: "Following"
+  follower: "Follower"
+  submit_unfollow: "Unfollow"
+  submit_follow: "Follow"
   menu:
     home: "Home"
     word_list: "Word List"
