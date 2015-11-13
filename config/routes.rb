@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   resources :authentications, only: [:new, :create, :destroy]  
   resources :categories, only: :index
   resources :users, except: :destroy
+  resources :words, only: :index
   namespace :admin do
     root 'users#show'
     resources :categories, except: [:destroy, :show]
     resources :users, only: [:index, :show, :edit, :update]
+    resources :words, except: :show
   end  
   resources :relationships, only: [:create, :destroy]
   #match ':controller(/:action(/:id))', :via => :get,:posts

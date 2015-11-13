@@ -40,16 +40,21 @@ en:
   follower: "Follower"
   submit_unfollow: "Unfollow"
   submit_follow: "Follow"
-  menu:
-    home: "Home"
-    word_list: "Word List"
-    categories: "Categories"
-    lesson: "Lesson"
-    result: "Result"
-    all_users: "All Users"
-    profile: "Profile"
-    sign_out: "Sign Out"
+  home: "Home"
+  word_list: "Word List"
+  new_word: "New Word"
+  categories: "Categories"
+  lesson: "Lesson"
+  result: "Result"
+  all_users: "All Users"
+  profile: "Profile"
+  sign_out: "Sign Out"
   sign_in_message: "Please sign in."
+  select_category: "Select a category"
+  word_create_title: "Create New Word"
+  word_update_title: "Update a Word"
+  answer: "Answer"
+  settings: "Settings"
   authentication:
     submit: "Sign In"
     signup_link: "Sign up now!"
@@ -71,7 +76,14 @@ en:
       create:
         success: "Successfully created"
       update:
-        success: "Successfully updated"        
+        success: "Successfully updated"
+    words:
+      create:
+        success: "Successfully created"
+      update:
+        success: "Successfully updated"
+      destroy:
+        success: "Successfully deleted"        
   helpers:
     user:
       label:

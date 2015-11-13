@@ -3,7 +3,7 @@ class CreateLessonWords < ActiveRecord::Migration
     create_table :lesson_words do |t|
       t.references :lesson
       t.references :word
-      t.references :wordAnswer
+      t.references :word_answer
 
       t.timestamps null: false
     end
