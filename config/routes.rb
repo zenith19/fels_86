@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'users#show'
   get 'signup' => 'users#new'
   get    'signin'   => 'authentications#new'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     resources :words, except: :show
   end  
   resources :relationships, only: [:create, :destroy]
+  resources :lessons, only: [:create, :show, :edit, :update]
   #match ':controller(/:action(/:id))', :via => :get,:posts
 
   # The priority is based upon order of creation: first created -> highest priority.
