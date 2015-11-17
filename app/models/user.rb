@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
       .select('"words"."id"').to_sql
     Word.where(category_id: category.id).where.not("id IN (#{learned_words_sql})")
       .ids.sample(20)
-  end 
-  
+  end
+    
   validates :firstname,  presence: true, length: { maximum: 30 }
   validates :lastname,  presence: true, length: { maximum: 30 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -58,6 +58,13 @@ en:
   start_button: "Start"
   next: "Next"
   check_lesson_words_number_error: "At least one word must exist in a lesson"
+  filter: "Filter"
+  learn: "Learned"
+  all_words: "All"
+  not_learn: "Not Learned"
+  didnt_learn: "User didn't learn anything yet"
+  didnt_learn_category: "Didn't learn from this category"
+  learn_all_category: "You have learned all words in this category"
   authentication:
     submit: "Sign In"
     signup_link: "Sign up now!"

@@ -1,16 +1,30 @@
-<%= will_paginate %>
+<div class="col-md-12">
+  <%= form_tag words_path, {method: :get} do %>
+    <%= t :categories %>
+    <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name",selected: params[:category_id]), { prompt: t('word.select_list') }%>
+    <%= radio_button_tag "learn", "learned", params[:learn] == "learned" %>
+    <%= t :learn %>
+    <%= radio_button_tag "learn", "not_learn", params[:learn] == "not_learn" %>
+    <%= t :not_learn %>
+    <%= radio_button_tag "learn", "all", params[:learn] == "all" || params[:learn].blank? %>
+    <%= t :all %>
+    <%= submit_tag t :filter, class: "btn btn-primary", name: nil %>
+  <% end %>
+</div><br/><br/><hr/>
 
-<% @words.each do |word| %>
-<% cycle :odd, :even %>
-<%= raw '<div class="row">' if current_cycle == 'odd' %>
-  <div class="col-xs-2">
-  	<%= word.content %>
-  </div>
-  <div class="col-xs-3 <%= 'divider-vertical' if current_cycle == 'odd' %>">	  	
-  	<%= word.word_answers.corrected.try(:content) %>  		  	
-  </div>
-<%= raw '</div>' if current_cycle == 'even' %>
-<%= raw '</div>' if word == @words.last && current_cycle == 'odd' %>
+<% unless @words.blank? %>
+  <%= will_paginate %>
+  <% @words.each do |word| %>
+  <% cycle :odd, :even %>
+  <%= raw '<div class="row">' if current_cycle == 'odd' %>
+    <div class="col-xs-2">
+    	<%= word.content %>
+    </div>
+    <div class="col-xs-3 <%= 'divider-vertical' if current_cycle == 'odd' %>">	  	
+    	<%= word.word_answers.corrected.try(:content) %>  		  	
+    </div>
+  <%= raw '</div>' if current_cycle == 'even' %>
+  <%= raw '</div>' if word == @words.last && current_cycle == 'odd' %>
+  <% end %>
+  <%= will_paginate %>
 <% end %>
-
-<%= will_paginate %>
