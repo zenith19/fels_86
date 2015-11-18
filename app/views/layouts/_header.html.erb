@@ -7,9 +7,9 @@
       <ul class="nav navbar-nav">
       	<li><%= link_to t(:home), root_path, class: "active" %></li>
         <li><%= link_to t(:word_list), words_path %></li>
-        <li><%= link_to t(:categories), categories_path %></li>
-        <li><%= link_to t :lesson %></li>
-        <li><%= link_to t :result %></li>
+        <li><%= link_to t(:categories), categories_path %></li>        
+        <li><%= link_to t(:lesson), current_user.lessons.size > 0 ? edit_lesson_path(current_user.lessons.last) : '#' %></li>
+        <li><%= link_to t(:result), current_user.lessons.size > 0 ? lesson_path(current_user.lessons.last.id) : '#' %></li>                
         <li><%= link_to t(:all_users), users_path %></li>
         <li class="dropdown">
     		<%= link_to  '#', class: "dropdown-toggle", data: {toggle: "dropdown"}, role: "button", aria: {haspopup: "true", expanded: "false"} do %>

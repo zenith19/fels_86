@@ -32,5 +32,5 @@ module AuthenticationsHelper
 
   def check_admin
     redirect_to categories_path unless current_user.admin?
-  end  
+  end
 end

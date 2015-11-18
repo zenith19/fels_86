@@ -5,5 +5,4 @@ class Word < ActiveRecord::Base
   accepts_nested_attributes_for :word_answers, allow_destroy: true
   validates :content,  presence: true
   validates :category,  presence: true
-  
 end

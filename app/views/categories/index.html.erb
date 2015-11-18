@@ -2,7 +2,13 @@
   <h2> <%= category.name %> </h2>
   <p>  	
   	<% category.words.each do |word| %>
-  	  <%= word.content %>&nbsp;
-  	<% end %>
+  	  <%= word.content %>&nbsp;  	  
+  	<% end %>  	
   </p>
+  <% if category.words.size >= 20 %>
+    <%= form_for @lesson do |f| %>    
+      <%= f.hidden_field :category_id, value: category.id %>    
+      <%= f.submit t :start_button %>
+    <% end %>
+  <% end %>
 <% end %>

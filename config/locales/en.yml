@@ -55,6 +55,8 @@ en:
   word_update_title: "Update a Word"
   answer: "Answer"
   settings: "Settings"
+  start_button: "Start"
+  next: "Next"
   authentication:
     submit: "Sign In"
     signup_link: "Sign up now!"
