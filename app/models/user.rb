@@ -8,7 +8,14 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :lessons, dependent: :destroy
+  has_many :words, through: :lessons
   has_many :activities, dependent: :destroy
+  scope :not_learned_ids, ->(user, category) do
+    learned_words_sql = User.where(id: user.id).joins(:words)
+      .select('"words"."id"').to_sql
+    Word.where(category_id: category.id).where.not(id: learned_words_sql)
+      .ids.sample(20)
+  end 
   
   validates :firstname,  presence: true, length: { maximum: 30 }
   validates :lastname,  presence: true, length: { maximum: 30 }

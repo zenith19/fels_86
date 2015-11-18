@@ -57,6 +57,7 @@ en:
   settings: "Settings"
   start_button: "Start"
   next: "Next"
+  check_lesson_words_number_error: "At least one word must exist in a lesson"
   authentication:
     submit: "Sign In"
     signup_link: "Sign up now!"
@@ -68,6 +69,9 @@ en:
       success: "Thank you for joining with us."
     update:
       success: "Profile updated"
+  lessons:
+    create:
+      info: "You have learned all words in this category"      
   admin:
     categories:
       create:
