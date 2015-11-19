@@ -1,26 +1,29 @@
+<div class="page-header">
+  <h3><%= @lesson.category.name %> <small id="lesson-counter"></small></h3>  
+</div>
 <%= form_for @lesson, html: {id: "edit_lesson"} do |f| %>
 <div class="row">
-    <div class="col-xs-9 col-xs-offset-3" id="lesson_words">
-      <%= f.fields_for :lesson_words do |lwf| %>
-      <div class="row hidden">
-		  <div class="col-xs-4">
-		  	<%= lwf.object.word.content %>
-		  </div>		  
-		  <div class="col-xs-7">
-		  	<% lwf.object.word.word_answers.each do |word_answer| %>
-		  	<div class="row">
-		  		<%= lwf.radio_button :word_answer_id, word_answer.id %>
-		  	    <%= label :word_answer_id, word_answer.content %>
-		  	</div>
-		  	<% end %>      	      	
-		  </div>
+  <div class="col-xs-offset-1" id="lesson_words">
+    <%= f.fields_for :lesson_words do |lwf| %>
+    <div class="row hidden">
+      <div class="col-xs-6">
+        <%= lwf.object.word.content %>
       </div>
-      <% end %>
+      <div class="col-xs-6">
+        <% lwf.object.word.word_answers.each do |word_answer| %>
+        <div class="row">
+          <%= lwf.radio_button :word_answer_id, word_answer.id %>
+          <%= label :word_answer_id, word_answer.content %>
+        </div>
+        <% end %>
+      </div>
     </div>
+    <% end %>
+  </div>
 </div>
 <div class="row">
-    <div class="col-xs-9 col-xs-offset-5">
-    	<%= f.submit t(:next) %>
-    </div>	
+  <div class="col-xs-offset-7">
+    <%= f.submit t(:next) %>
+  </div>
 </div>
 <% end %>

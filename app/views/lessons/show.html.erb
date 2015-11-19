@@ -1,1 +1,12 @@
-<h1>This is the Result page which will be completed on task 44238</h1>
+<div class="page-header">
+  <h3><%= @lesson.category.name %></small></h3>
+</div>
+<% @lesson.lesson_words.each do |lesson_word| %>
+<div class="row lead">
+  <div class="col-xs-6">
+    <span class="glyphicon <%= lesson_word.word_answer.correct? ? 
+      "glyphicon-ok" : "glyphicon-remove" %>" aria-hidden="true"></span>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= lesson_word.word.content %></div>
+  <div class="col-xs-6"><%= lesson_word.word_answer.content %></div> 
+</div>
+<% end %>

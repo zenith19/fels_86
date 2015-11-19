@@ -4,12 +4,14 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new lesson_params
     @lesson.user = current_user
-    words = @lesson.category.words.sample(20)
-    words.each {|word| @lesson.lesson_words.build word_id: word.id }
+    User.not_learned_ids(current_user, @lesson.category).each do |id|
+      @lesson.lesson_words.build word_id: id
+    end
     @lesson.result = 0
     if @lesson.save
       redirect_to edit_lesson_path(@lesson)
     else
+      flash[:info] = t '.info'
       redirect_to categories_path
     end    
   end
