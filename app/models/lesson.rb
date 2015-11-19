@@ -6,7 +6,10 @@ class Lesson < ActiveRecord::Base
   accepts_nested_attributes_for :lesson_words
   validates :result, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validate :check_lesson_words_number
+  
   before_update :update_result
+  after_create :log_activity_for_lesson_start
+  after_update :log_activity_for_lesson_end
   
   def update_result
     result = lesson_words.select do |lesson_word|
@@ -23,4 +26,12 @@ class Lesson < ActiveRecord::Base
       errors.add :base, I18n.t(:check_lesson_words_number_error)
     end
   end
+  
+  def log_activity_for_lesson_start
+    Activity.create target_id: id, user_id: user.id, action_type: Activity::TYPES[:lesson_start]
+  end
+  
+  def log_activity_for_lesson_end
+    Activity.create target_id: id, user_id: user.id, action_type: Activity::TYPES[:lesson_end]
+  end  
 end

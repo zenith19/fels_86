@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   scope :not_learned_ids, ->(user, category) do
     learned_words_sql = User.where(id: user.id).joins(:words)
       .select('"words"."id"').to_sql
-    Word.where(category_id: category.id).where.not(id: learned_words_sql)
+    Word.where(category_id: category.id).where.not("id IN (#{learned_words_sql})")
       .ids.sample(20)
   end 
   
