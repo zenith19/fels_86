@@ -12,7 +12,8 @@ end
 2.times do |c|
   category = Category.create! name: "Category #{c+1}"
   20.times do |w|
-    word = category.words.create! content: "word_example_#{w+1}"
+
+    word = category.words.create! content: "word_example_#{w+1} C:#{c+1}"
     3.times do |wa|
       word.word_answers.create! content: "word#{w+1}_answer_#{wa+1}"
     end
