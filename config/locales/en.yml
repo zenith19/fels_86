@@ -65,6 +65,11 @@ en:
   didnt_learn: "User didn't learn anything yet"
   didnt_learn_category: "Didn't learn from this category"
   learn_all_category: "You have learned all words in this category"
+  activity_start_lesson: "Learning in Lesson \"%{category_name}\"-(%{date})"
+  activity_end_lesson: "Learned in lesson \"%{category_name}\"-(%{date})"
+  activity_follow_user: "Follow user \"%{user_name}\"-(%{date})"
+  activity_unfollow_user: "Unfollow user \"%{user_name}\"-(%{date})"
+  learned_word_count: "Learned %{words_count} words"
   authentication:
     submit: "Sign In"
     signup_link: "Sign up now!"

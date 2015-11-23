@@ -6,9 +6,10 @@ class UsersController < ApplicationController
     @users = User.paginate page: params[:page]
   end
   
-  def show    
+  def show
     @user = params.has_key?(:id) ? User.find(params[:id]) : current_user 
-    @activities = @user.activities.paginate page: params[:page]
+    @word_count = @user.words.count
+    @activities = @user.activities
   end
   
   def new
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
   
   private    
   def user_params
-    params.require(:user).permit :email, :password, :password_confirmation, :firstname, :lastname
+    params.require(:user).permit :email, :password, 
+      :password_confirmation, :firstname, :lastname
   end
 end
