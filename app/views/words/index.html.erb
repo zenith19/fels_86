@@ -1,4 +1,5 @@
-<div class="col-md-12">
+<br/><br/>
+<div class="col-md-12 container">
   <%= form_tag words_path, {method: :get} do %>
     <%= t :categories %>
     <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name",selected: params[:category_id]), { prompt: t('word.select_list') }%>
@@ -10,7 +11,7 @@
     <%= t :all %>
     <%= submit_tag t :filter, class: "btn btn-primary", name: nil %>
   <% end %>
-</div><br/><br/><hr/>
+</div><hr/>
 
 <% unless @words.blank? %>
   <%= will_paginate %>
