@@ -1,17 +1,19 @@
 <div class="row">
   <div class="col-md-3 divider-vertical pull-left" style="height:100vh;">
     <section class="user_info">
-      <h2><%= @user.firstname %><%= @user.lastname %></h2>
+      <h2><%= @user.firstname %>&nbsp;<%= @user.lastname %></h2>
     </section>
-    <section>
+    <section class="center">
       <%= render 'shared/stats' %>
       <%= render 'follow_form' %>
     </section>
-    <section>
+    <section class="learned_words" >
       <%= t(:learned_word_count, words_count: "#{@word_count}") %>
     </section>
   </div>
-  <div class="col-md-8">    
+  <div class="col-md-8">
+    <%= link_to t(:words), words_path, class: "btn btn-primary btn-xlarge" %>&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to t(:categories), categories_path, class: "btn btn-primary btn-xlarge" %>
     <% if @activities.any? && 
         ((current_user == @user) || current_user.following?(@user)) %>
         <h3><%= t :activities %> (<%= @activities.count %>)</h3><br/><hr/>

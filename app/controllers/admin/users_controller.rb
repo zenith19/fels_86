@@ -8,8 +8,10 @@ class Admin::UsersController < ApplicationController
     @users = User.paginate page: params[:page]
   end
   
-  def show     
-    @activities = @user.activities.paginate page: params[:page]
+  def show
+    @user = params.has_key?(:id) ? User.find(params[:id]) : current_user 
+    @word_count = @user.words.count
+    @activities = @user.activities
   end
   
   def edit    

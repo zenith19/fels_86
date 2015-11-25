@@ -1,18 +1,22 @@
 <div class="row">
-  <aside class="col-md-4">
+  <div class="col-md-3 divider-vertical pull-left" style="height:100vh;">
     <section class="user_info">
-      <h1>        
-        <%= @user.firstname %> <%= @user.lastname %>
-      </h1>
+      <h2><%= @user.firstname %>&nbsp;<%= @user.lastname %></h2>
     </section>
-  </aside>
+    <section class="learned_words" >
+      <%= t(:learned_word_count, words_count: "#{@word_count}") %>
+    </section>
+  </div><br/>
   <div class="col-md-8">
+    <%= link_to t(:words), words_path, class: "btn btn-primary btn-xlarge" %>&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to t(:categories), categories_path, class: "btn btn-primary btn-xlarge" %>
     <% if @activities.any? %>
-      <h3><%= t :activities %> (<%= @user.activities.count %>)</h3>
-      <ol class="activities">
-        <%= render @activities %>
-      </ol>
-      <%= will_paginate @activities %>
+        <h2><%= t :activities %> (<%= @activities.count %>)</h2><br/><hr/>
+        <ol class="activities">
+          <% load_activity_messages(@activities).each do |message| %>
+            <%= message %><hr/><br/>
+          <% end %>
+        </ol>
     <% end %>
   </div>
 </div>
